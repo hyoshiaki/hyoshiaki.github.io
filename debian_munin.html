@@ -1,0 +1,22 @@
+<p>Munin を Debian にインストールした。 Apacheのモニタリングをしようとして、次のようにプラグインをインストール（シンボリックリンクを貼る）する。</p>
+<pre><code> sudo ln -s /usr/share/munin/plugins/apache_accesses /etc/munin/plugins/apache_accesses
+ sudo ln -s /usr/share/munin/plugins/apache_processes /etc/munin/plugins/apache_processes
+ sudo ln -s /usr/share/munin/plugins/apache_volume /etc/munin/plugins/apache_volume</code></pre>
+<p>しかしながら、エラーが出てくる。 LWP:UserAgent がねーよこの野郎！とか抜かすので、 いろいろと調べた。CPANでインストールするのかとか試行錯誤していたら。。。</p>
+<pre><code> sudo aptitude install liblwp-useragent-determined-perl </code></pre>
+<p>でインストールできたようだ。</p>
+<p>後は、/etc/apache2/apache2.confに</p>
+<pre><code> &lt;IfModule mod_status.c&gt;
+   ExtendedStatus On
+    &lt;Location /server-status&gt;
+      SetHandler server-status
+      Order deny,allow
+      Deny from all
+      Allow from 127.0.0.1
+    &lt;/Location&gt;
+ &lt;/IfModule&gt;</code></pre>
+<p>などと追記して、</p>
+<pre><code> sudo /etc/init.d/apache2 restart
+ sudo /etc/init.d/munin-node restart
+ </code></pre>
+<p>するとおｋ</p>

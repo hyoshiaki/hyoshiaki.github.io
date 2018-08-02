@@ -1,0 +1,10 @@
+<p>玄箱はNASであるがDebianをインストールすることができた。当時の私的なメモなので、あまり役にはたたない。</p>
+<h2 id="lennyインストール">lennyインストール</h2>
+<p>MontaVista Linux インストール時には別の作業用PCがあったほうがよい。 じかに玄箱とPCをつないだ。またファイアーウォールは無効にしたほうがよい。 IPアドレスはじかにつなぐと玄箱が、192.168.11.150 になるようである。 これにあわせ、作業用PCのIPアドレスを 192.168.1.100 などとした。</p>
+<p>＊ルータ以下に配してもインストール出来るとは思うが、幾度か失敗したので。 また、別のインタフェースカードが有効だと失敗するかも。VirtualBoxのネットワークデバイスに邪魔されたと思う。</p>
+<p>MontaVista Linux をインストール後、EMモードに入る。hda3を二つに分割した。 この際、telnetで接続。User/Passは root/kuroadmin である。</p>
+<p>ブラウザから玄箱の設定ページを開く。User/Passは root/webadmin である。 ここでIPアドレスを自宅のネットワーク構成にあわせ、玄箱を自宅ネットワークのルータ以下に配した。</p>
+<p><strong>Vistaだと玄箱がネットワークから見れない</strong>のでXPを使って必要なファイルを玄箱に送った。 lennyをインストール後、/mnt/etc/network/interface をいじって自宅のネットワーク構成にあうように設定を変えた。 Rebootする。</p>
+<p>telnetを用いて、tmp-kun/tmp-kunでログイン su（passwordはroot）でrootに変わって、rootのパスワード変更、ユーザ作成、 aptitude update,safe-upgrade、sshとvimをインストールした。 sshの設定をかえる。 /etc/ssh/sshd_config</p>
+<p>telnetから出て、新しいユーザでsshでログイン .bashrcに、export EDITOR=vim を追加し、デフォルトのエディタをVimにした。 suでrootに変わって、tmp-kun削除、、sudoをインストールする。visudoでsudoの設定。 sudoで環境変数を引き継ぐならば　－＞　Defaults !env_reset</p>
+<p>以下、必要なものからどんどん入れた。 ntp /etc/ntp.conf SERVERに適当なntpサーバのURLを入れて、sudo /etc/init.d/ntp restartした。</p>

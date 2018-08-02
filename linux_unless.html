@@ -1,0 +1,12 @@
+<p>不要なパッケージの削除</p>
+<pre><code>$ sudo apt-get --purge remove `deborphan` //不要（孤立）パッケージ
+$ sudo dpkg -P `deborphan --find-config` //不要設定ファイル
+$ sudo apt-get clean
+$ sudo apt-get autoremove</code></pre>
+<p>du ディレクトリ容量を調べる</p>
+<pre><code>$ sudo du -sh /*  // カレントディレクトリ以下の容量
+$ sudo du -sh /* | sort -hr  //容量でソート
+$ sudo du -sh /hoge/hoge/* | sort -hr | head -15 //上位１５ファイル</code></pre>
+<p>apache2 のログ、PHPでエラー出まくると肥大化する。</p>
+<pre><code>$ sudo log | gerp hoehoge &gt; log.new //hogehogeのログ書き出し
+$ sudo log | gerp --invert-match hogehgoe &gt; log.new //hogehoge以外のログ書き出し</code></pre>

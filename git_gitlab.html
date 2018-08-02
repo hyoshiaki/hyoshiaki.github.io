@@ -1,0 +1,87 @@
+<h3 id="gititgistubgitlabのインストールと設定">Gitit・Gistub・Gitlabのインストールと設定</h3>
+<p>GitLab CE Omnibus のインストール https://fumiyas.github.io/gitlab/install-omnibus.html</p>
+<h4 id="バックグラウンドで動かす">バックグラウンドで動かす</h4>
+<p>gistub gitit gitlabの起動</p>
+<pre><code>$ sudo ruby /var/apps/gistub/bin/rails s -d
+$ sudo gitit -f /var/git/.gitit.conf &amp;
+$ sudo /etc/init.d/gitlab start</code></pre>
+<p>バックグランドで動かす←＆をつかう</p>
+<pre><code>#sortコマンドをバックグラウンドで動かす
+$ sort address &gt; result &amp;</code></pre>
+<h4 id="gitit-セットアップして起動して最初にやるべき事">gitit セットアップして起動して最初にやるべき事</h4>
+<ul class="incremental">
+<li>gititインストール先の data/templates/~ を、セットアップ先の templates/ にコピーする
+<ul class="incremental">
+<li>テンプレいじる場合は前者ではなく後者をいじるようにする</li>
+</ul></li>
+<li>上記と同様に、gititインストール先の data/static/~ の内、自分がいじりそうなディレクトリ/ファイルを、セットアップ先の static/ にコピーする</li>
+<li>「Gitit User's Guide」のページを削除する
+<ul class="incremental">
+<li>ページ一覧から辿るか、ローカルで削除してgit commitする</li>
+</ul></li>
+<li>gitit.confを編集してgititプロセス再起動</li>
+</ul>
+<p><a href="http://doc.tir.ne.jp/devel/gitit">gititメモ</a></p>
+<pre><code>$ /usr/share/gitit/data/templates //apt-getで入れた時
+$ ~%home%/.cabal/share/gitit/data/template //cabalで入れた時</code></pre>
+<h4 id="リポジトリの-origin-url-の変更">リポジトリの origin URL の変更</h4>
+<p>origin URLのチェック</p>
+<pre><code> $ git remote -v
+ origin  git@localhost:hoge/hoge.git (fetch)
+ origin  git@localhost:hoge/hoge.git (push)</code></pre>
+<p>URL変更する</p>
+<pre><code> $ git remote set-url origin git@localhost:hoge/hogehoge.git</code></pre>
+<h4 id="gitlab-の-ssh-url-チェンジ"><del>Gitlab の SSH URL チェンジ</del></h4>
+<p><del>git@localhos:{gitの<span class="math"><em>h</em><em>o</em><em>m</em><em>e</em></span>}/repositories～としたいのでソースいじる</del></p>
+<p><a href="http://qiita.com/volanja/items/d0ed86dbb6e4ec7d7a54">gitlabへのpush時に「does not appear to be a git repository」と表示されるときの対策 - Qiita</a></p>
+<p>lib/gitlab/backend/shell.rb</p>
+<pre><code> 191 satellites_path = File.join(Gitlab.config.satellites.path, path)
+ 192 FileUtils.rm_r(satellites_path, force: true)
+ 193 end
+ 194
+ 195 def url_to_repo path
+-196 #Gitlab.config.gitlab_shell.ssh_path_prefix + &quot;#{path}.git&quot;
++197 Gitlab.config.gitlab_shell.ssh_path_prefix + &quot;repositoreis/#{path}.git&quot;
+
+
+$ cd /home/git/gitlab
+$ sudo -u git -H bundle install --deployment --without development test postgres</code></pre>
+<h3 id="port80-以外で動くサーバをサブドメインつけて-apache-で捌く">Port80 以外で動くサーバをサブドメインつけて Apache で捌く</h3>
+<h4 id="apache2-site-enables">apache2 site-enables</h4>
+<pre><code>&lt;IfModule mod_proxy.c&gt;
+ #Basic認証しなければ Proxy以下いらない
+ &lt;Proxy \*&gt;
+   AllowOverride FileInfo AuthConfig Limit
+   Options MultiViews Indexes SymLinksIfOwnerMatch
+
+   # Basic認証する
+   AuthType Basic
+   AuthName &quot;&lt;!-- 表示 --&gt;&quot;
+   AuthUserFile &lt;!-- password のパス --&gt;
+   require valid-user
+ &lt;/Proxy&gt;
+
+ ProxyPass / http://localhost:&lt;!-- port --&gt;
+ ProxyPassReverse / http://localhost:8080 //例
+&lt;/IfModule&gt;</code></pre>
+<h3 id="その他の設定つまづいた点">その他の設定（つまづいた点）</h3>
+<h4 id="モジュールの有効化">モジュールの有効化</h4>
+<pre><code>$ an2enmod proxy
+$ an2enmod proxy-http //これがないとエラーが出る　proxy-no-protocol-handler-was-valid-for-the-url~
+$ an2enmod proxy-html</code></pre>
+<h4 id="サブドメインの設定">サブドメインの設定</h4>
+<p>dnsのTTLを最小にしないといつまでも更新されない。</p>
+<h4 id="gitlabでリバースプロキシしない方法">Gitlabでリバースプロキシしない方法</h4>
+<p>/public/uploads 以下でhttp://localhost:8080 ではアクセス出来ないので、リバースプロキシしない。</p>
+<pre><code>ProxyRequests Off
+ProxyVia off
+ProxyPass /uploads !
+ProxyPass / http://localhost:8080/
+ProxyPassReverse / http://localhost:8080/</code></pre>
+<h3 id="gitlabのアップデート">Gitlabのアップデート</h3>
+<h4 id="updateの流れ">Updateの流れ</h4>
+<pre><code>1. Gitlabのバックアップ
+2. Gitlabサービスの停止
+3. Updateスクリプトの実行
+4. Gitlabサービス・Apacheの再起動</code></pre>
+<p>Shell： $ cd /home/git/gitlab $ sudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production $ sudo service gitlab stop $ sudo -u git -H ruby script/update.rb $ sudo service gitlab start $ sudo /etc/init.d/apache2 restart</p>
