@@ -1,4 +1,4 @@
-# Visual SUdio Code + Github
+# Visual Studio Code + Github
 ## gitのインストール
 - Homebrewをインストール
 - gitをインストール
