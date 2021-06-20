@@ -6,12 +6,16 @@ URLを呟くタイプの垢。Pixivの堀裕子タグ、藤居朋タグがつい
 
 ## Kindle ライトノベル新着&nbsp;[@ka4ln](https://twitter.com/ka4ln)
 
-ライトノベル新着@Kindleを呟く。APIを利用している。
+ライトノベル新着@Kindleをつぶやく。
+
+## ゆるゆりアラート&nbsp;[@yuruyurialert](https://twitter.com/yuruyurialert)
+
+Pixivやニコ動のゆるゆりタグがついたものをつぶやく。
 
 ## ｽｰﾊﾟｰｳﾙﾄﾗﾐﾗｸﾙ・ｽﾋﾟﾘﾁｭｱﾙﾄﾞｰﾙ ﾄﾓ bot&nbsp;[@fjtomobot](https://twitter.com/fjtomobot)
 
-~~朝7時前にかに座の占い結果を呟く。~~
-デレぽの投稿に合わせて8時35分ごろに、その日1位の星座を呟くようにした。  
+~~朝7時前にかに座の占い結果をつぶやく。~~
+デレぽの投稿に合わせて8時35分ごろに、その日1位の星座をつぶやくようにした。  
 [Web ad Fortune 無料API](http://jugemkey.jp/api/waf/api_free.php)を利用している。  
 [Twiiter認証](https://cinderella.imastags.com/fujitomo/twitter/?appid=fujitomo&test=clear)を行い、星座を登録することで毎日リプライでその星座の占い結果が届くようにした。
 
