@@ -8,7 +8,7 @@ URLを呟くタイプの垢。Pixivの堀裕子タグ、藤居朋タグがつい
 
 ライトノベル新着@Kindleを呟く。APIを利用している。
 
-## 占うふじともBOT&nbsp;[@fjtomobot](https://twitter.com/fjtomobot)
+## ｽｰﾊﾟｰｳﾙﾄﾗﾐﾗｸﾙ・ｽﾋﾟﾘﾁｭｱﾙﾄﾞｰﾙ ﾄﾓ bot&nbsp;[@fjtomobot](https://twitter.com/fjtomobot)
 
 ~~朝7時前にかに座の占い結果を呟く。~~
 デレぽの投稿に合わせて8時35分ごろに、その日1位の星座を呟くようにした。  
