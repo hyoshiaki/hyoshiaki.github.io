@@ -2,9 +2,9 @@
 
 ニコマス新着以外のもの
 
-## パクちゃま＠別垢&nbsp;[@pkchr](https://twitter.com/pkchr)
+## ~~パクちゃま＠別垢~~&nbsp;[@pkchr](https://twitter.com/pkchr)
 
-URLを呟くタイプの垢。Pixivの堀裕子タグ、藤居朋タグがついた画像URLをつぶやく。
+~~URLを呟くタイプの垢。Pixivの堀裕子タグ、藤居朋タグがついた画像URLをつぶやく。~~
 
 ## ｽｰﾊﾟｰｳﾙﾄﾗﾐﾗｸﾙ・ｽﾋﾟﾘﾁｭｱﾙﾄﾞｰﾙ ﾄﾓ bot&nbsp;[@fjtomobot](https://twitter.com/fjtomobot)
 
@@ -15,4 +15,4 @@ URLを呟くタイプの垢。Pixivの堀裕子タグ、藤居朋タグがつい
 * Powerd by [JugemKey](http://jugemkey.jp/api/)
 * 【PR】[原宿占い館 塔里木](http://www.tarim.co.jp/)
 
-[Twilog](https://twilog.org/fjtomobot)
+[Twilog](https://twilog.togetter.com/fjtomobot)

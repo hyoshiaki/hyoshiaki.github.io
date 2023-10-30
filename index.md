@@ -17,10 +17,7 @@ Psychic Idol Producer, System Engineer.
 
 ## つくったりしたもの
 
-[ニコマス新着情報サイト imastags.com](https://www.imastags.com)
-
-[imastags Twitterリスト](https://twitter.com/i/lists/54812825)
-
-[Twitter Bots](twitter.html)
-
-[MovableType Plugins](mt.html)
+* [ニコマス新着情報サイト imastags.com](https://www.imastags.com)
+* [imastags Twitterリスト](https://twitter.com/i/lists/54812825)
+* [Twitter Bots](twitter.html)
+* [MovableType Plugins](mt.html)
