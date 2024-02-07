@@ -6,8 +6,9 @@ Psychic Idol Producer, System Engineer.
 
 * GitHub&nbsp;:&nbsp;[hyoshiaki on GitHub](https://github.com/hyoshiaki/)
 * Qiita&nbsp;:&nbsp;[hyoshiaki on Qiita](https://qiita.com/hyoshiaki)
+* Bluesky&nbsp;:&nbsp;[@hyoshiai.bsky.social](https://bsky.app/profile/hyoshiaki.bsky.social)
 * Misskey&nbsp;&nbsp;[@hyoshiaki@misskey.io](https://misskey.io/@hyoshiaki)
-* Twitter&nbsp;:&nbsp;[@hyoshiai](https://twitter.com/hyoshiaki)
+* X(aka Twitter)&nbsp;:&nbsp;[@hyoshiai](https://x.com/hyoshiaki)
 
 ## Website
 
