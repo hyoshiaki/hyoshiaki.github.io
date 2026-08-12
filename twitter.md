@@ -1,6 +1,7 @@
-# Twitter Bots
+# X(aka Twitter) Bots
 
 ニコマス新着以外のもの
+いずれもX API有料化に伴い投稿をやめた。
 
 ## ~~パクちゃま＠別垢~~&nbsp;[@pkchr](https://twitter.com/pkchr)
 
@@ -10,7 +11,7 @@
 
 ~~朝7時前にかに座の占い結果をつぶやく。~~
 ~~デレぽの投稿に合わせて8時35分ごろに、その日1位の星座をつぶやくようにした。~~  
-[Web ad Fortune 無料API](http://jugemkey.jp/api/waf/api_free.php)を利用している。  
+[Web ad Fortune 無料API](http://jugemkey.jp/api/waf/api_free.php)を利用していた。  
 
 * Powerd by [JugemKey](http://jugemkey.jp/api/)
 * 【PR】[原宿占い館 塔里木](http://www.tarim.co.jp/)
